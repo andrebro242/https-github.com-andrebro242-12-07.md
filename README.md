@@ -72,33 +72,33 @@ SAN-кластер:
 
 Блоксхема:
 
-+---------------------+
-|      Приложение     |
-+---------------------+
+    +---------------------+
+    |      Приложение     |
+    +---------------------+
            |
-+---------------------+
-| База данных (Users) |
-+---------------------+
-     |           |
-+---------+ +---------+
-| Shard 1 | | Shard 2 |
-+---------+ +---------+
+    +---------------------+
+    | База данных (Users) |
+    +---------------------+
+         |           |
+    +---------+ +---------+
+    | Shard 1 | | Shard 2 |
+    +---------+ +---------+
 
-+---------------------+
-| База данных (Books) |
-+---------------------+
-     |           |
-+---------+ +---------+
-| Shard 1 | | Shard 2 |
-+---------+ +---------+
+    +---------------------+
+    | База данных (Books) |
+    +---------------------+
+          |           |
+    +---------+ +---------+
+    | Shard 1 | | Shard 2 |
+    +---------+ +---------+
 
-+------------------------+
-| База данных (Stores)    |
-+------------------------+
-     |           |
-+---------+ +---------+
-| Shard 1 | | Shard 2 |
-+---------+ +---------+
+    +------------------------+
+    | База данных (Stores)    |
+    +------------------------+
+         |           |
+    +---------+ +---------+
+    | Shard 1 | | Shard 2 |
+    +---------+ +---------+
 
 Режимы работы серверов:
 
@@ -133,7 +133,7 @@ SAN-кластер:
           POSTGRES_USER: user
           POSTGRES_PASSWORD: password
         networks:
-          -shard_network
+          - shard_network
 
       shard2_users_db:
         image: postgres
@@ -142,7 +142,7 @@ SAN-кластер:
               POSTGRES_USER: user
           POSTGRES_PASSWORD: password
         networks:
-          -shard_network
+          - shard_network
 
       shard1_books_db:
         image: postgres
@@ -151,7 +151,7 @@ SAN-кластер:
           POSTGRES_USER: user
           POSTGRES_PASSWORD: password
         networks:
-          -shard_network
+          - shard_network
 
       shard2_books_db:
         image: postgres
@@ -160,7 +160,7 @@ SAN-кластер:
           POSTGRES_USER: user
           POSTGRES_PASSWORD: password
         networks:
-          -shard_network
+          - shard_network
 
       shard1_stores_db:
         image: postgres
@@ -169,7 +169,7 @@ SAN-кластер:
           POSTGRES_USER: user
           POSTGRES_PASSWORD: password
         networks:
-          -shard_network
+          - shard_network
 
       shard2_stores_db:
         image: postgres
@@ -178,7 +178,7 @@ SAN-кластер:
           POSTGRES_USER: user
           POSTGRES_PASSWORD: password
         networks:
-          -shard_network
+          - shard_network
 
     networks:
       shard_network:
